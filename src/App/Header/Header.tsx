@@ -37,7 +37,7 @@ interface HeaderProps {
 }
 
 const items = [
-  { name: 'Projets', url: '/projects' },
-  { name: 'Expériences', url: '/experiences' },
-  { name: 'Compétences', url: '/skills' },
+  { name: 'Projects', url: '/projects' },
+  { name: 'Experience', url: '/experiences' },
+  { name: 'Skills', url: '/skills' },
 ];
