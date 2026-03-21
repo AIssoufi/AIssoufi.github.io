@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import './Experience.css';
 
 import Project from './Project';
@@ -45,30 +43,6 @@ const Experience = ({
       <main className="details">{children}</main>
     </article>
   );
-};
-
-Experience.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
-  jobName: PropTypes.string,
-  entityName: PropTypes.string,
-  entityLogoUrl: PropTypes.string,
-  contratType: PropTypes.string,
-  city: PropTypes.string,
-  startDate: PropTypes.string,
-  endDate: PropTypes.string,
-  duration: PropTypes.string,
-};
-
-Experience.defaultProps = {
-  children: undefined,
-  jobName: undefined,
-  entityName: undefined,
-  entityLogoUrl: undefined,
-  contratType: undefined,
-  city: undefined,
-  startDate: undefined,
-  endDate: undefined,
-  duration: undefined,
 };
 
 Experience.Technologies = Technologies;

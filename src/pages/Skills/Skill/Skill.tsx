@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import './Skill.css';
 
 interface SkillProps {
@@ -7,7 +5,7 @@ interface SkillProps {
   experienceDuration?: string;
   proProjectCount?: number;
   personalProjectCount?: number;
-  tools: string[];
+  tools?: string[];
   valuationValue?: number;
 }
 
@@ -16,7 +14,7 @@ const Skill = ({
   experienceDuration,
   proProjectCount,
   personalProjectCount,
-  tools,
+  tools = [],
   valuationValue,
 }: SkillProps) => {
   return (
@@ -51,24 +49,6 @@ const Skill = ({
       {tools.length > 0 ? <footer className="tools">{tools.join(', ')}</footer> : null}
     </div>
   );
-};
-
-Skill.propTypes = {
-  name: PropTypes.string,
-  experienceDuration: PropTypes.string,
-  proProjectCount: PropTypes.number,
-  personalProjectCount: PropTypes.number,
-  tools: PropTypes.arrayOf(PropTypes.string),
-  valuationValue: PropTypes.number,
-};
-
-Skill.defaultProps = {
-  name: undefined,
-  experienceDuration: undefined,
-  proProjectCount: undefined,
-  personalProjectCount: undefined,
-  tools: [],
-  valuationValue: undefined,
 };
 
 export default Skill;

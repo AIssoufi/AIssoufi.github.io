@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // SVG
-import { ReactComponent as LikeIcon } from './icons/heart.svg';
-import { ReactComponent as NextIcon } from './icons/next.svg';
-import { ReactComponent as PreviousIcon } from './icons/previous.svg';
+import LikeIcon from './icons/heart.svg?react';
+import NextIcon from './icons/next.svg?react';
+import PreviousIcon from './icons/previous.svg?react';
 
 import './Project.css';
 
@@ -19,11 +18,11 @@ interface ProjectItem {
 }
 
 interface ProjectProps {
-  title: string;
-  projects: ProjectItem[];
+  title?: string;
+  projects?: ProjectItem[];
 }
 
-const Project = ({ title, projects }: ProjectProps) => {
+const Project = ({ title, projects = [] }: ProjectProps) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [displayAllPages, setDisplayAllPages] = useState(false);
   const step = 3;
@@ -96,24 +95,6 @@ const Project = ({ title, projects }: ProjectProps) => {
       </main>
     </section>
   );
-};
-
-Project.propTypes = {
-  title: PropTypes.string,
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      type: PropTypes.string,
-      imageUrl: PropTypes.string,
-      tools: PropTypes.arrayOf(PropTypes.string),
-    }),
-  ),
-};
-
-Project.defaultProps = {
-  title: undefined,
-  projects: [],
 };
 
 export default Project;

@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './NavMenu.css';
 
-import { ReactComponent as DownloadIcon } from './icons/download.svg';
+import DownloadIcon from './icons/download.svg?react';
 
 interface Item {
   name: string;
@@ -15,7 +14,7 @@ interface NavMenuProps {
   onClick: () => void;
 }
 
-const NavMenu = ({ items, onClick, mobileMenuIsOpen }: NavMenuProps) => {
+const NavMenu = ({ items = [], onClick, mobileMenuIsOpen = false }: NavMenuProps) => {
   return (
     <nav className={`nav-menu-comp ${mobileMenuIsOpen ? 'mobile-menu-is-open' : ''}`}>
       <ul>
@@ -27,7 +26,7 @@ const NavMenu = ({ items, onClick, mobileMenuIsOpen }: NavMenuProps) => {
             <NavLink
               to={item.url}
               onClick={onClick}
-              activeClassName="active"
+              className={({ isActive }) => (isActive ? 'active' : '')}
             >
               {item.name}
             </NavLink>
@@ -46,23 +45,6 @@ const NavMenu = ({ items, onClick, mobileMenuIsOpen }: NavMenuProps) => {
       </a>
     </nav>
   );
-};
-
-NavMenu.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      url: PropTypes.string,
-    }),
-  ),
-  mobileMenuIsOpen: PropTypes.bool,
-  onClick: PropTypes.func,
-};
-
-NavMenu.defaultProps = {
-  items: [],
-  mobileMenuIsOpen: false,
-  onClick: undefined,
 };
 
 export default NavMenu;

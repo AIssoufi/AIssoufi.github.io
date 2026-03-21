@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Experiences, Home, Projects, Skills } from '../pages';
 import Header from './Header';
 import Modal from './Modal';
@@ -20,20 +20,24 @@ function App() {
         data-testid="app"
       >
         <Header />
-        <Switch>
-          <Route path="/projects">
-            <Projects />
-          </Route>
-          <Route path="/experiences">
-            <Experiences />
-          </Route>
-          <Route path="/skills">
-            <Skills />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route
+            path="/projects"
+            element={<Projects />}
+          />
+          <Route
+            path="/experiences"
+            element={<Experiences />}
+          />
+          <Route
+            path="/skills"
+            element={<Skills />}
+          />
+          <Route
+            path="/"
+            element={<Home />}
+          />
+        </Routes>
         <Modal
           displayModal={openTemporaryModal}
           onClose={handleCloseModal}

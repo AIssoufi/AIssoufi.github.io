@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 
 import './Modal.css';
@@ -29,10 +28,6 @@ const Modal = ({ displayModal, onClose }: ModalProps) => {
     </div>,
     document.getElementById('modal-root') as Element,
   );
-};
-
-Modal.propTypes = {
-  onClose: PropTypes.func.isRequired,
 };
 
 export default Modal;

@@ -1,5 +1,5 @@
 import Lottie from 'lottie-web';
-import PropTypes from 'prop-types';
+
 import { useEffect, useRef } from 'react';
 
 import './BurgerMenu.css';
@@ -53,12 +53,6 @@ const BurgerMenu = ({ isOpen, onOpen, onClose }: BurgerMenuProps) => {
       onClick={handleBurgerMenuClick}
     />
   );
-};
-
-BurgerMenu.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onOpen: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
 };
 
 export default BurgerMenu;
