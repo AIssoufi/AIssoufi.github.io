@@ -1,35 +1,33 @@
 import { Link } from 'react-router-dom';
 
-import './Home.css';
+import { Btn, ButtonContainer, HomePage, Main, Subtitle, Title } from './Home.styled';
 
 export const Home = () => {
   return (
-    <section
-      id="home-page"
-      className="page"
-    >
-      <main>
-        <h1>
+    <HomePage>
+      <Main>
+        <Title>
           <strong>Développeur full-stack JavaScript</strong>
           <br />
-          passioné par l’<strong>UX</strong> et l'<strong>UI</strong> Design
-        </h1>
-        <p>Je vous aide à dévelloper vos applications web</p>
-      </main>
-      <div className="btn-container">
-        <Link
+          passioné par l'<strong>UX</strong> et l'<strong>UI</strong> Design
+        </Title>
+        <Subtitle>Je vous aide à dévelloper vos applications web</Subtitle>
+      </Main>
+      <ButtonContainer>
+        <Btn
+          as={Link}
           to="/projects"
-          className="btn call-to-action"
+          $callToAction
         >
           Voir mes projets
-        </Link>
-        <Link
+        </Btn>
+        <Btn
+          as={Link}
           to="/experiences"
-          className="btn"
         >
           Expériences professionnelles
-        </Link>
-      </div>
-    </section>
+        </Btn>
+      </ButtonContainer>
+    </HomePage>
   );
 };

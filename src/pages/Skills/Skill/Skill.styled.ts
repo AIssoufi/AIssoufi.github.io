@@ -1,40 +1,42 @@
-.skill-comp {
+import styled from 'styled-components';
+
+export const Card = styled.div`
   border: none;
   border-radius: var(--border-radius);
   background-color: var(--transparent-bg-color);
   padding: 10px;
   margin-bottom: 10px;
-}
+`;
 
-.skill-comp > header {
+export const CardHeader = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+`;
 
-.skill-comp .name {
+export const Name = styled.h3`
   margin: 0;
   font-size: 18px;
   font-weight: 700;
   margin-right: 10px;
-}
+`;
 
-.skill-comp .valuation {
+export const Valuation = styled.div`
   font-size: 18px;
   color: var(--secpndary-dark-color);
-}
+`;
 
-.skill-comp .valuation .fill {
-  color: var(--tertiary-color);
-}
+export const Star = styled.span<{ $filled: boolean }>`
+  color: ${props => (props.$filled ? 'var(--tertiary-color)' : 'inherit')};
+`;
 
-.skill-comp .additional-infos {
+export const AdditionalInfos = styled.main`
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: 500;
-}
+`;
 
-.skill-comp .tools {
+export const Tools = styled.footer`
   font-size: 14px;
   font-weight: 400;
-}
+`;

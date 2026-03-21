@@ -1,6 +1,13 @@
 import { createPortal } from 'react-dom';
 
-import './Modal.css';
+import {
+  CloseButton,
+  ConfirmButton,
+  Container,
+  ModalBody,
+  ModalHeader,
+  Overlay,
+} from './Modal.styled';
 
 interface ModalProps {
   displayModal: boolean;
@@ -10,22 +17,22 @@ interface ModalProps {
 const Modal = ({ displayModal, onClose }: ModalProps) => {
   if (!displayModal) return null;
   return createPortal(
-    <div className="modal-comp">
-      <div className="container">
-        <header>
-          <button onClick={onClose}>&times;</button>
-        </header>
-        <main>
+    <Overlay>
+      <Container>
+        <ModalHeader>
+          <CloseButton onClick={onClose}>&times;</CloseButton>
+        </ModalHeader>
+        <ModalBody>
           <p>Ce site est toujours en développement et sera bientôt terminé !</p>
-          <button
+          <ConfirmButton
             type="button"
             onClick={onClose}
           >
             J'ai compris
-          </button>
-        </main>
-      </div>
-    </div>,
+          </ConfirmButton>
+        </ModalBody>
+      </Container>
+    </Overlay>,
     document.getElementById('modal-root') as Element,
   );
 };

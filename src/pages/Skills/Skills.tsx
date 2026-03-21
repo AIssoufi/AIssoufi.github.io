@@ -1,16 +1,13 @@
 import Skill from './Skill';
 
-import './Skills.css';
+import { SectionList, SectionTitle, SkillSection, SkillsPage } from './Skills.styled';
 
 export const Skills = () => {
   return (
-    <section
-      id="skills-page"
-      className="page"
-    >
-      <section className="skill-section">
-        <h1 className="section-title">Compétences web</h1>
-        <main className="section-list">
+    <SkillsPage>
+      <SkillSection>
+        <SectionTitle>Compétences web</SectionTitle>
+        <SectionList>
           <Skill
             name="Front-end"
             experienceDuration="5 ans et 5 mois"
@@ -51,11 +48,11 @@ export const Skills = () => {
             tools={['wireframing']}
             valuationValue={1}
           />
-        </main>
-      </section>
-      <section className="skill-section">
-        <h1 className="section-title">Autres compétences</h1>
-        <main className="section-list">
+        </SectionList>
+      </SkillSection>
+      <SkillSection>
+        <SectionTitle>Autres compétences</SectionTitle>
+        <SectionList>
           <Skill
             name="Programmation orienté objet"
             valuationValue={4}
@@ -68,8 +65,8 @@ export const Skills = () => {
             name="Design patterns"
             valuationValue={4}
           />
-        </main>
-      </section>
-    </section>
+        </SectionList>
+      </SkillSection>
+    </SkillsPage>
   );
 };

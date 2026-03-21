@@ -1,9 +1,6 @@
-#modal-root {
-  position: relative;
-  z-index: 100;
-}
+import styled from 'styled-components';
 
-#modal-root .modal-comp {
+export const Overlay = styled.div`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,24 +10,24 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(0 0 0 / 85%);
-}
+`;
 
-#modal-root .container {
+export const Container = styled.div`
   display: grid;
   grid-template-rows: min-content 1fr;
   background-color: var(--transparent-bg-color);
   border-radius: var(--border-radius);
   padding: 10px;
   margin: 7px;
-}
+`;
 
-#modal-root .container > header {
+export const ModalHeader = styled.header`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
+`;
 
-#modal-root .container > header button {
+export const CloseButton = styled.button`
   color: white;
   background-color: transparent;
   border-radius: 60px;
@@ -38,20 +35,21 @@
   border-style: solid;
   width: max-content;
   height: max-content;
-}
+`;
 
-#modal-root .container > main {
+export const ModalBody = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
-}
-#modal-root .container > main p {
-  margin: 0 0 20px 0;
-  text-align: center;
-}
 
-#modal-root .container > main button {
+  p {
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+`;
+
+export const ConfirmButton = styled.button`
   color: var(--primary-color);
   background-color: var(--tertiary-color);
   border-color: var(--tertiary-color);
@@ -63,9 +61,9 @@
   transform: scale(1);
   transition-property: color, border-color, transform, background-color;
   transition-duration: var(--transition-duration);
-}
 
-#modal-root .container > main button:hover {
-  cursor: pointer;
-  transform: scale(1.15);
-}
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+  }
+`;

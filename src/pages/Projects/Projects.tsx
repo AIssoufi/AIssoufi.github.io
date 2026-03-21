@@ -1,16 +1,12 @@
 import Project from './Project';
 
-import './Projects.css';
-
 import freelanceProjectsData from './.data/freelance-projects.json';
 import personnalProjectsData from './.data/personnal-projects.json';
+import { ProjectsPage } from './Projects.styled';
 
 export const Projects = () => {
   return (
-    <section
-      id="projects-page"
-      className="page"
-    >
+    <ProjectsPage>
       <Project
         title="Projets personnels"
         projects={personnalProjectsData.projects}
@@ -19,6 +15,6 @@ export const Projects = () => {
         title="Projets freelance"
         projects={freelanceProjectsData.projects}
       />
-    </section>
+    </ProjectsPage>
   );
 };

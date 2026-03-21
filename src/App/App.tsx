@@ -4,7 +4,7 @@ import { Experiences, Home, Projects, Skills } from '../pages';
 import Header from './Header';
 import Modal from './Modal';
 
-import './App.css';
+import { WebApp } from './App.styled';
 
 function App() {
   const [openTemporaryModal, setOpenTemporaryModal] = useState(true);
@@ -15,10 +15,7 @@ function App() {
 
   return (
     <Router>
-      <div
-        className="web-app"
-        data-testid="app"
-      >
+      <WebApp data-testid="app">
         <Header />
         <Routes>
           <Route
@@ -42,7 +39,7 @@ function App() {
           displayModal={openTemporaryModal}
           onClose={handleCloseModal}
         />
-      </div>
+      </WebApp>
     </Router>
   );
 }

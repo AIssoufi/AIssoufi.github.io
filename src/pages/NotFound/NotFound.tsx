@@ -1,12 +1,5 @@
-import './NotFound.css';
+import { NotFoundPage } from './NotFound.styled';
 
 export const NotFound = () => {
-  return (
-    <section
-      id="not-found-page"
-      className="page"
-    >
-      404
-    </section>
-  );
+  return <NotFoundPage>404</NotFoundPage>;
 };

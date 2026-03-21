@@ -1,7 +1,16 @@
-import './Experience.css';
-
 import Project from './Project';
 import Technologies from './Technologies';
+
+import {
+  Article,
+  Details,
+  EntityLogo,
+  JobDetails,
+  JobDuration,
+  JobName,
+  JobSummary,
+  Summary,
+} from './Experience.styled';
 
 interface ExperienceProps {
   jobName: string;
@@ -27,21 +36,20 @@ const Experience = ({
   children,
 }: ExperienceProps) => {
   return (
-    <article className="exp-comp">
-      <header className="summary">
-        <img
-          className="entity-logo"
+    <Article>
+      <Summary>
+        <EntityLogo
           src={entityLogoUrl}
           alt={entityName}
         />
-        <div className="job-summary">
-          <h2 className="job-name">{jobName}</h2>
-          <div className="job-details">{`${entityName} · ${contratType} · ${city}`}</div>
-          <div className="job-duration">{`${startDate} – ${endDate} · ${duration}`}</div>
-        </div>
-      </header>
-      <main className="details">{children}</main>
-    </article>
+        <JobSummary>
+          <JobName>{jobName}</JobName>
+          <JobDetails>{`${entityName} · ${contratType} · ${city}`}</JobDetails>
+          <JobDuration>{`${startDate} – ${endDate} · ${duration}`}</JobDuration>
+        </JobSummary>
+      </Summary>
+      <Details>{children}</Details>
+    </Article>
   );
 };
 

@@ -1,10 +1,8 @@
 import Lottie from 'lottie-web';
-
 import { useEffect, useRef } from 'react';
 
-import './BurgerMenu.css';
-
 import burgerMenuData from './burger-menu.json';
+import { Container } from './BurgerMenu.styled';
 
 interface BurgerMenuProps {
   isOpen: boolean;
@@ -47,8 +45,8 @@ const BurgerMenu = ({ isOpen, onOpen, onClose }: BurgerMenuProps) => {
   };
 
   return (
-    <div
-      className={`burger-menu-comp ${isOpen ? 'is-open' : ''}`}
+    <Container
+      $isOpen={isOpen}
       ref={menuBurgerEl}
       onClick={handleBurgerMenuClick}
     />

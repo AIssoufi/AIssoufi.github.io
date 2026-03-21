@@ -5,9 +5,25 @@ import LikeIcon from './icons/heart.svg?react';
 import NextIcon from './icons/next.svg?react';
 import PreviousIcon from './icons/previous.svg?react';
 
-import './Project.css';
+import {
+  CtrlItem,
+  ImageContainer,
+  LikeContainer,
+  LikeCounter,
+  NavCtrl,
+  ProjectGrid,
+  ProjectInfo,
+  ProjectItem,
+  ProjectName,
+  ProjectTools,
+  ProjectType,
+  Section,
+  SectionHeader,
+  SectionTitle,
+  Thumbnail,
+} from './Project.styled';
 
-interface ProjectItem {
+interface ProjectItemData {
   id: number;
   name: string;
   type: string;
@@ -19,7 +35,7 @@ interface ProjectItem {
 
 interface ProjectProps {
   title?: string;
-  projects?: ProjectItem[];
+  projects?: ProjectItemData[];
 }
 
 const Project = ({ title, projects = [] }: ProjectProps) => {
@@ -42,58 +58,54 @@ const Project = ({ title, projects = [] }: ProjectProps) => {
   };
 
   return (
-    <section className="project-comp">
-      <header>
-        <h1 className="title">{title}</h1>
-        <nav className="nav-ctrl">
-          <button
-            className="ctrl-item"
-            onClick={handleDisplayAllPage}
-          >
+    <Section>
+      <SectionHeader>
+        <SectionTitle>{title}</SectionTitle>
+        <NavCtrl>
+          <CtrlItem onClick={handleDisplayAllPage}>
             {displayAllPages ? 'Afficher moins' : `Tout afficher (${projects.length})`}
-          </button>
+          </CtrlItem>
           {displayAllPages ? null : (
-            <PreviousIcon
-              className="ctrl-item"
+            <CtrlItem
+              as={PreviousIcon as any}
               onClick={handlePreviousPage}
             />
           )}
           {displayAllPages ? null : (
-            <NextIcon
-              className="ctrl-item"
+            <CtrlItem
+              as={NextIcon as any}
               onClick={handleNextPage}
             />
           )}
-        </nav>
-      </header>
-      <main className={displayAllPages ? 'display-all' : ''}>
+        </NavCtrl>
+      </SectionHeader>
+      <ProjectGrid $displayAll={displayAllPages}>
         {(displayAllPages ? projects : projects.slice(currentPage, currentPage + step)).map(
           ({ id, name, type, imageUrl, tools, likeCount, isLikedByOwnUser }) => (
-            <div
+            <ProjectItem
               key={id}
-              className="project-item"
+              $displayAll={displayAllPages}
             >
-              <header className="image-container">
-                <img
-                  className="thumbnail"
+              <ImageContainer>
+                <Thumbnail
                   src={imageUrl}
                   alt={name}
                 />
-                <div className="like-container">
-                  <span className="counter">{likeCount}</span>
+                <LikeContainer>
+                  <LikeCounter>{likeCount}</LikeCounter>
                   <LikeIcon className={`like ${isLikedByOwnUser ? 'isLiked' : ''}`} />
-                </div>
-              </header>
-              <main>
-                <div className="name">{name}</div>
-                <div className="type">{type}</div>
-                <div className="tools">{tools.join(' · ')}</div>
-              </main>
-            </div>
+                </LikeContainer>
+              </ImageContainer>
+              <ProjectInfo>
+                <ProjectName>{name}</ProjectName>
+                <ProjectType>{type}</ProjectType>
+                <ProjectTools>{tools.join(' · ')}</ProjectTools>
+              </ProjectInfo>
+            </ProjectItem>
           ),
         )}
-      </main>
-    </section>
+      </ProjectGrid>
+    </Section>
   );
 };
 

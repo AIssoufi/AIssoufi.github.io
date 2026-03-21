@@ -1,7 +1,7 @@
-import './Skill.css';
+import { AdditionalInfos, Card, CardHeader, Name, Star, Tools, Valuation } from './Skill.styled';
 
 interface SkillProps {
-  name: string;
+  name?: string;
   experienceDuration?: string;
   proProjectCount?: number;
   personalProjectCount?: number;
@@ -18,21 +18,26 @@ const Skill = ({
   valuationValue,
 }: SkillProps) => {
   return (
-    <div className="skill-comp">
-      <header>
-        <h3 className="name">{name}</h3>
-        <div className="valuation">
+    <Card>
+      <CardHeader>
+        <Name>{name}</Name>
+        <Valuation>
           {[1, 2, 3, 4, 5].map(index => (
-            <span className={valuationValue && index <= valuationValue ? 'fill' : ''}>&#9733;</span>
+            <Star
+              key={index}
+              $filled={!!valuationValue && index <= valuationValue}
+            >
+              &#9733;
+            </Star>
           ))}
-        </div>
-      </header>
+        </Valuation>
+      </CardHeader>
       {experienceDuration &&
       Number.isInteger(proProjectCount) &&
       Number.isInteger(personalProjectCount) ? (
-        <main className="additional-infos">
+        <AdditionalInfos>
           <div>
-            {experienceDuration ? experienceDuration : 'Pas '} d’expériences professionnelles
+            {experienceDuration ? experienceDuration : 'Pas '} d'expériences professionnelles
           </div>
           <div>
             {proProjectCount ? proProjectCount : 'Pas de'} projet
@@ -44,10 +49,10 @@ const Skill = ({
             {personalProjectCount && personalProjectCount > 1 ? 's' : ''} personnel
             {personalProjectCount && personalProjectCount > 1 ? 's' : ''}
           </div>
-        </main>
+        </AdditionalInfos>
       ) : null}
-      {tools.length > 0 ? <footer className="tools">{tools.join(', ')}</footer> : null}
-    </div>
+      {tools.length > 0 ? <Tools>{tools.join(', ')}</Tools> : null}
+    </Card>
   );
 };
 
