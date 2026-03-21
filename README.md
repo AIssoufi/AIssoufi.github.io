@@ -1,23 +1,23 @@
 # issoufi-v3
 
-> Portfolio personnel d'**ADAM Issoufi** — Développeur full-stack JavaScript passionné par l'UX et l'UI Design.
+> Personal portfolio of **ADAM Issoufi** — Full-stack JavaScript developer with a passion for UX and UI Design.
 
-## 🛠 Stack technique
+## 🛠 Tech Stack
 
-| Catégorie           | Technologies        |
+| Category            | Technologies        |
 | ------------------- | ------------------- |
 | **Framework**       | React 19            |
 | **Build**           | Vite 6              |
-| **Langage**         | TypeScript 5        |
+| **Language**        | TypeScript 5        |
 | **Styling**         | styled-components 6 |
 | **Routing**         | React Router 7      |
 | **Package Manager** | pnpm                |
 
-## 🚀 Démarrage rapide
+## 🚀 Getting Started
 
-### Prérequis
+### Prerequisites
 
-- [Node.js](https://nodejs.org/) (LTS recommandé)
+- [Node.js](https://nodejs.org/) (LTS recommended)
 - [pnpm](https://pnpm.io/)
 
 ### Installation
@@ -26,13 +26,13 @@
 pnpm install
 ```
 
-### Développement
+### Development
 
 ```bash
 pnpm dev
 ```
 
-L'application sera disponible sur [http://localhost:3000](http://localhost:3000).
+The app will be available at [http://localhost:3000](http://localhost:3000).
 
 ### Production
 
@@ -44,27 +44,27 @@ pnpm preview
 ### Tests
 
 ```bash
-pnpm test          # Exécution unique
-pnpm test:watch    # Mode watch
+pnpm test          # Single run
+pnpm test:watch    # Watch mode
 ```
 
-## 📁 Structure du projet
+## 📁 Project Structure
 
 ```
 src/
-├── App/                  # Composant principal + layout
-│   ├── Header/           # Navigation, menu burger, liens
-│   └── Modal/            # Modal informative
+├── App/                  # Root component & layout
+│   ├── Header/           # Navigation, burger menu, links
+│   └── Modal/            # Informational modal
 ├── pages/
-│   ├── Home/             # Page d'accueil
-│   ├── Projects/         # Projets personnels & freelance
-│   ├── Experiences/      # Expériences professionnelles
-│   ├── Skills/           # Compétences techniques
-│   └── NotFound/         # Page 404
-└── index.tsx             # Point d'entrée
+│   ├── Home/             # Landing page
+│   ├── Projects/         # Personal & freelance projects
+│   ├── Experiences/      # Work experience
+│   ├── Skills/           # Technical skills
+│   └── NotFound/         # 404 page
+└── index.tsx             # Entry point
 ```
 
 ## 📝 Conventions
 
-- **Commits** : [Conventional Commits](https://www.conventionalcommits.org/) via commitlint
-- **Formatage** : Prettier (via lint-staged + husky)
+- **Commits**: [Conventional Commits](https://www.conventionalcommits.org/) enforced via commitlint
+- **Formatting**: Prettier (via lint-staged + husky)

@@ -7,10 +7,6 @@ export const HomePage = styled(Page)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  &::before {
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/issoufi-v3.appspot.com/o/bg%2Fhome.jpeg?alt=media&token=5db53a4d-725e-428e-bcd4-df46ce477c56);
-  }
 `;
 
 export const Main = styled.main`

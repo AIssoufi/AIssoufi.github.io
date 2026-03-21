@@ -2,11 +2,7 @@ import styled from 'styled-components';
 
 import { Page } from '../../App/App.styled';
 
-export const SkillsPage = styled(Page)`
-  &::before {
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/issoufi-v3.appspot.com/o/bg%2Fskills.jpg?alt=media&token=4d574a90-fa9d-472f-a5a2-cb490c2cff05);
-  }
-`;
+export const SkillsPage = styled(Page)``;
 
 export const SkillSection = styled.section`
   margin-bottom: 30px;

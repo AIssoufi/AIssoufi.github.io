@@ -2,9 +2,12 @@ import Skill from './Skill';
 
 import { SectionList, SectionTitle, SkillSection, SkillsPage } from './Skills.styled';
 
+const BG_IMAGE =
+  'https://firebasestorage.googleapis.com/v0/b/issoufi-v3.appspot.com/o/bg%2Fskills.jpg?alt=media&token=4d574a90-fa9d-472f-a5a2-cb490c2cff05';
+
 export const Skills = () => {
   return (
-    <SkillsPage>
+    <SkillsPage $backgroundImage={BG_IMAGE}>
       <SkillSection>
         <SectionTitle>Compétences web</SectionTitle>
         <SectionList>

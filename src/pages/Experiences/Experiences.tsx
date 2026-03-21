@@ -2,9 +2,12 @@ import Experience from './Experience';
 
 import { ExperiencesPage, PageTitle } from './Experiences.styled';
 
+const BG_IMAGE =
+  'https://firebasestorage.googleapis.com/v0/b/issoufi-v3.appspot.com/o/bg%2Fexperiences.jpeg?alt=media&token=1c6b8b2b-9613-42ad-8ae7-2b835c4eaf52';
+
 export const Experiences = () => {
   return (
-    <ExperiencesPage>
+    <ExperiencesPage $backgroundImage={BG_IMAGE}>
       <header>
         <PageTitle>Expériences</PageTitle>
       </header>
