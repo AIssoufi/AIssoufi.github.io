@@ -2,8 +2,7 @@ import Experience from './Experience';
 
 import { ExperiencesPage, PageTitle } from './Experiences.styled';
 
-const BG_IMAGE =
-  'https://firebasestorage.googleapis.com/v0/b/issoufi-v3.appspot.com/o/bg%2Fexperiences.jpeg?alt=media&token=1c6b8b2b-9613-42ad-8ae7-2b835c4eaf52';
+const BG_IMAGE = '/experiences.jpeg';
 
 export const Experiences = () => {
   return (
@@ -15,7 +14,7 @@ export const Experiences = () => {
         <Experience
           jobName="Développeur full-stack JavaScript"
           entityName="Wibilong"
-          entityLogoUrl="https://firebasestorage.googleapis.com/v0/b/issoufi-v3.appspot.com/o/experiences%2Flogos%2Fwibilong.png?alt=media&token=b2dd8cdf-9da9-4713-8719-f27647aa2f61"
+          entityLogoUrl="/wibilong.png"
           contratType="CDI"
           city="Paris (75)"
           startDate="sept. 2019"
@@ -47,7 +46,7 @@ export const Experiences = () => {
         <Experience
           jobName="Développeur full-stack JavaScript"
           entityName="Supralog"
-          entityLogoUrl="https://firebasestorage.googleapis.com/v0/b/issoufi-v3.appspot.com/o/experiences%2Flogos%2Fsupralog.png?alt=media&token=d202bebf-a943-4059-b975-6b9ae151c213"
+          entityLogoUrl="/supralog.png"
           contratType="Contrat en alternance"
           city="Antibes (06)"
           startDate="juin 2018"
@@ -92,7 +91,7 @@ export const Experiences = () => {
         <Experience
           jobName="Développeur front-end JavaScript"
           entityName="Beepeers"
-          entityLogoUrl="https://firebasestorage.googleapis.com/v0/b/issoufi-v3.appspot.com/o/experiences%2Flogos%2Fbeepeers.jpg?alt=media&token=14971955-d8f6-4e32-8a6a-c262e75e8974"
+          entityLogoUrl="/beepeers.jpg"
           contratType="Stage"
           city="Valbonne (06)"
           startDate="mai 2017"

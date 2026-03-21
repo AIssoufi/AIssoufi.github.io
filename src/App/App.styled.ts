@@ -33,9 +33,7 @@ export const Page = styled.section<{ $backgroundImage?: string }>`
     left: 0;
     right: 0;
     background-image: ${props =>
-      props.$backgroundImage
-        ? `url(${props.$backgroundImage})`
-        : 'url(https://images.unsplash.com/photo-1611776917406-5be7d613a00a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)'};
+      props.$backgroundImage ? `url(${props.$backgroundImage})` : 'none'};
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
