@@ -37,6 +37,7 @@ interface HeaderProps {
 }
 
 const items = [
+  { name: 'Accueil', url: '/' },
   { name: 'Projects', url: '/projects' },
   { name: 'Experience', url: '/experiences' },
   { name: 'Skills', url: '/skills' },

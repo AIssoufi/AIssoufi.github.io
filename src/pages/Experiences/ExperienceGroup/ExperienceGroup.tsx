@@ -1,44 +1,73 @@
+import React from 'react';
 import Project from '../Experience/Project';
 import Technologies from '../Experience/Technologies';
-import { EntityLogo } from '../Experience/Experience.styled';
+import {
+  EntityLogo,
+  JobDetails,
+  JobDuration,
+  JobSummary,
+  Summary,
+} from '../Experience/Experience.styled';
+import { computeDuration } from './duration';
 
 import {
-  CompanyHeader,
-  CompanyInfo,
-  CompanyMeta,
-  CompanyName,
-  EvolutionTag,
   GroupArticle,
-  RoleDateBadge,
+  RoleContent,
   RoleDetails,
-  RoleHeader,
   RoleItem,
   RoleName,
+  RolePeriodCol,
+  RolePeriodEnd,
+  RolePeriodSep,
+  RolePeriodStart,
   RolesList,
-  RoleTitleBlock,
 } from './ExperienceGroup.styled';
+
+interface CompanyCtxValue {
+  entityName: string;
+  entityLogoUrl: string;
+  contratType: string;
+  city: string;
+}
+
+const CompanyCtx = React.createContext<CompanyCtxValue | null>(null);
 
 interface RoleProps {
   jobName: string;
   startDate: string;
   endDate: string;
-  duration: string;
-  tag?: string;
   children: React.ReactNode;
 }
 
-const Role = ({ jobName, startDate, endDate, duration, tag, children }: RoleProps) => (
-  <RoleItem>
-    <RoleHeader>
-      <RoleTitleBlock>
-        <RoleName>{jobName}</RoleName>
-        {tag && <EvolutionTag>{tag}</EvolutionTag>}
-      </RoleTitleBlock>
-      <RoleDateBadge>{`${startDate} – ${endDate} · ${duration}`}</RoleDateBadge>
-    </RoleHeader>
-    <RoleDetails>{children}</RoleDetails>
-  </RoleItem>
-);
+const Role = ({ jobName, startDate, endDate, children }: RoleProps) => {
+  const company = React.useContext(CompanyCtx);
+
+  return (
+    <RoleItem>
+      <RolePeriodCol>
+        <RolePeriodStart>{startDate}</RolePeriodStart>
+        <RolePeriodSep>↓</RolePeriodSep>
+        <RolePeriodEnd>{endDate}</RolePeriodEnd>
+      </RolePeriodCol>
+      <RoleContent>
+        {company && (
+          <Summary>
+            <EntityLogo
+              src={company.entityLogoUrl}
+              alt={company.entityName}
+            />
+            <JobSummary>
+              <RoleName>{jobName}</RoleName>
+              <JobDetails>{`${company.entityName} · ${company.contratType} · ${company.city}`}</JobDetails>
+              <JobDuration>{computeDuration(startDate, endDate)}</JobDuration>
+            </JobSummary>
+          </Summary>
+        )}
+        <RoleDetails>{children}</RoleDetails>
+      </RoleContent>
+    </RoleItem>
+  );
+};
 
 Role.Project = Project;
 Role.Technologies = Technologies;
@@ -58,19 +87,11 @@ const ExperienceGroup = ({
   city,
   children,
 }: ExperienceGroupProps) => (
-  <GroupArticle>
-    <CompanyHeader>
-      <EntityLogo
-        src={entityLogoUrl}
-        alt={entityName}
-      />
-      <CompanyInfo>
-        <CompanyName>{entityName}</CompanyName>
-        <CompanyMeta>{`${contratType} · ${city}`}</CompanyMeta>
-      </CompanyInfo>
-    </CompanyHeader>
-    <RolesList>{children}</RolesList>
-  </GroupArticle>
+  <CompanyCtx.Provider value={{ entityName, entityLogoUrl, contratType, city }}>
+    <GroupArticle>
+      <RolesList>{children}</RolesList>
+    </GroupArticle>
+  </CompanyCtx.Provider>
 );
 
 ExperienceGroup.Role = Role;

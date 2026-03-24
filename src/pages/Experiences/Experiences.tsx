@@ -25,122 +25,109 @@ export const Experiences = () => {
       </PageHeader>
       <main>
         <Timeline>
-          <TimelineEntry>
-            <TimelinePeriod>
-              <PeriodStart>juin 2021</PeriodStart>
-              <PeriodSep>↓</PeriodSep>
-              <PeriodEnd>auj.</PeriodEnd>
-            </TimelinePeriod>
-            <TimelineContent>
-              <ExperienceGroup
-                entityName="Sewan Groupe"
-                entityLogoUrl="/sewan.png"
-                contratType="CDI"
-                city="Paris (75)"
+          <ExperienceGroup
+            entityName="Sewan Groupe"
+            entityLogoUrl="/sewan.png"
+            contratType="CDI"
+            city="Paris (75)"
+          >
+            <ExperienceGroup.Role
+              jobName="Lead Frontend Engineer — UI Kit Owner & Architect"
+              startDate="août 2021"
+              endDate="Aujourd'hui"
+            >
+              Owner et référent technique de l'UI Kit interne Sewan — bibliothèque de composants
+              React distribuée à <strong>~15 équipes produit</strong> via un registre NPM privé.
+              Interlocuteur unique entre les équipes design system, les développeurs consommateurs
+              et la direction technique.
+              <BulletList>
+                <BulletItem>
+                  Conception et évolution d'APIs de composants React + TypeScript robustes,
+                  documentées sous Storybook, suivant une approche TDD
+                </BulletItem>
+                <BulletItem>
+                  Priorisation du backlog, recueil et arbitrage des besoins auprès de ~15 équipes
+                </BulletItem>
+                <BulletItem>
+                  Accompagnement transverse : onboarding, code review, debug et formation des
+                  équipes consommatrices
+                </BulletItem>
+              </BulletList>
+              <ExperienceGroup.Role.Project
+                title="Modernisation complète de la stack technique"
+                state="En production"
               >
-                <ExperienceGroup.Role
-                  jobName="Lead Frontend Engineer — UI Kit Owner & Architect"
-                  startDate="août 2021"
-                  endDate="Aujourd'hui"
-                  duration="4 ans 8 mois"
-                  tag="↑ Évolution de poste"
-                >
-                  Owner et référent technique de l'UI Kit interne Sewan — bibliothèque de composants
-                  React distribuée à <strong>~15 équipes produit</strong> via un registre NPM privé.
-                  Interlocuteur unique entre les équipes design system, les développeurs
-                  consommateurs et la direction technique.
-                  <BulletList>
-                    <BulletItem>
-                      Conception et évolution d'APIs de composants React + TypeScript robustes,
-                      documentées sous Storybook, suivant une approche TDD
-                    </BulletItem>
-                    <BulletItem>
-                      Priorisation du backlog, recueil et arbitrage des besoins auprès de ~15
-                      équipes
-                    </BulletItem>
-                    <BulletItem>
-                      Accompagnement transverse : onboarding, code review, debug et formation des
-                      équipes consommatrices
-                    </BulletItem>
-                  </BulletList>
-                  <ExperienceGroup.Role.Project
-                    title="Modernisation complète de la stack technique"
-                    state="En production"
-                  >
-                    Refonte technique de bout en bout menée en solo pour moderniser l'outillage et
-                    améliorer significativement l'expérience développeur (DX) :
-                    <BulletList>
-                      <BulletItem>
-                        Storybook v5.3 → v8.6 (migration CSF 2 → CSF 3), Node.js v16 → v22
-                      </BulletItem>
-                      <BulletItem>
-                        Jest → Vitest, Webpack → tsup + Vite (builds sensiblement plus rapides)
-                      </BulletItem>
-                      <BulletItem>
-                        npm + Lerna v4 → pnpm + Lerna v8 ; passage à TypeScript strict
-                      </BulletItem>
-                      <BulletItem>Refonte intégrale du pipeline CI/CD GitLab</BulletItem>
-                    </BulletList>
-                  </ExperienceGroup.Role.Project>
-                  <ExperienceGroup.Role.Technologies
-                    technologies={[
-                      'React.js',
-                      'TypeScript',
-                      'Storybook',
-                      'Vite',
-                      'tsup',
-                      'pnpm',
-                      'TDD',
-                      'Vitest',
-                      'Node.js',
-                      'Lerna',
-                      'CI GitLab',
-                    ]}
-                  />
-                </ExperienceGroup.Role>
+                Refonte technique de bout en bout menée en solo pour moderniser l'outillage et
+                améliorer significativement l'expérience développeur (DX) :
+                <BulletList>
+                  <BulletItem>
+                    Storybook v5.3 → v8.6 (migration CSF 2 → CSF 3), Node.js v16 → v22
+                  </BulletItem>
+                  <BulletItem>
+                    Jest → Vitest, Webpack → tsup + Vite (builds sensiblement plus rapides)
+                  </BulletItem>
+                  <BulletItem>
+                    npm + Lerna v4 → pnpm + Lerna v8 ; passage à TypeScript strict
+                  </BulletItem>
+                  <BulletItem>Refonte intégrale du pipeline CI/CD GitLab</BulletItem>
+                </BulletList>
+              </ExperienceGroup.Role.Project>
+              <ExperienceGroup.Role.Technologies
+                technologies={[
+                  'React.js',
+                  'TypeScript',
+                  'Storybook',
+                  'Vite',
+                  'tsup',
+                  'pnpm',
+                  'TDD',
+                  'Vitest',
+                  'Node.js',
+                  'Lerna',
+                  'CI GitLab',
+                ]}
+              />
+            </ExperienceGroup.Role>
 
-                <ExperienceGroup.Role
-                  jobName="Senior Full-Stack Engineer — Core Platform (React, Node.js, GraphQL)"
-                  startDate="juin 2021"
-                  endDate="Aujourd'hui"
-                  duration="4 ans 10 mois"
-                >
-                  Membre de l'équipe core (3 développeurs) en charge des fondations techniques de{' '}
-                  <strong>Sophia Go</strong>, la plateforme métier centrale de Sewan.
-                  <BulletList>
-                    <BulletItem>
-                      Conception de l'architecture front-end transverse : store global, logique
-                      métier commune, configuration partagée et librairies internes utilisées par
-                      toutes les équipes feature
-                    </BulletItem>
-                    <BulletItem>
-                      Développement full-stack de modules critiques : React/TypeScript côté client,
-                      Node.js/GraphQL côté serveur
-                    </BulletItem>
-                    <BulletItem>
-                      Pilotage des évolutions techniques majeures et accompagnement des équipes dans
-                      leur adoption
-                    </BulletItem>
-                  </BulletList>
-                  <ExperienceGroup.Role.Project
-                    title="friday — BFF GraphQL"
-                    technologies={['Node.js', 'GraphQL']}
-                  >
-                    Conception et développement d'un Backend-For-Frontend GraphQL découplant le
-                    front-end des microservices back-end. Simplifie les contrats d'API et réduit le
-                    couplage entre les équipes.
-                  </ExperienceGroup.Role.Project>
-                  <ExperienceGroup.Role.Project
-                    title="onboarding-app — Espace client React"
-                    technologies={['React.js', 'TypeScript', 'Redux.js']}
-                  >
-                    Développement from scratch de l'application React d'onboarding client de la
-                    plateforme Sophia Go — point d'entrée critique pour les nouveaux clients Sewan.
-                  </ExperienceGroup.Role.Project>
-                </ExperienceGroup.Role>
-              </ExperienceGroup>
-            </TimelineContent>
-          </TimelineEntry>
+            <ExperienceGroup.Role
+              jobName="Senior Full-Stack Engineer — Core Platform (React, Node.js, GraphQL)"
+              startDate="juin 2021"
+              endDate="Aujourd'hui"
+            >
+              Membre de l'équipe core (3 développeurs) en charge des fondations techniques de{' '}
+              <strong>Sophia Go</strong>, la plateforme métier centrale de Sewan.
+              <BulletList>
+                <BulletItem>
+                  Conception de l'architecture front-end transverse : store global, logique métier
+                  commune, configuration partagée et librairies internes utilisées par toutes les
+                  équipes feature
+                </BulletItem>
+                <BulletItem>
+                  Développement full-stack de modules critiques : React/TypeScript côté client,
+                  Node.js/GraphQL côté serveur
+                </BulletItem>
+                <BulletItem>
+                  Pilotage des évolutions techniques majeures et accompagnement des équipes dans
+                  leur adoption
+                </BulletItem>
+              </BulletList>
+              <ExperienceGroup.Role.Project
+                title="friday — BFF GraphQL"
+                technologies={['Node.js', 'GraphQL']}
+              >
+                Conception et développement d'un Backend-For-Frontend GraphQL découplant le
+                front-end des microservices back-end. Simplifie les contrats d'API et réduit le
+                couplage entre les équipes.
+              </ExperienceGroup.Role.Project>
+              <ExperienceGroup.Role.Project
+                title="onboarding-app — Espace client React"
+                technologies={['React.js', 'TypeScript', 'Redux.js']}
+              >
+                Développement from scratch de l'application React d'onboarding client de la
+                plateforme Sophia Go — point d'entrée critique pour les nouveaux clients Sewan.
+              </ExperienceGroup.Role.Project>
+            </ExperienceGroup.Role>
+          </ExperienceGroup>
 
           <TimelineEntry>
             <TimelinePeriod>
