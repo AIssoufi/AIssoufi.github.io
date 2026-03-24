@@ -7,7 +7,6 @@ export const Article = styled.article`
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 16px;
-  margin-bottom: 12px;
   box-shadow: var(--card-shadow);
   transition-property: transform, box-shadow;
   transition-duration: var(--transition-duration);
@@ -57,10 +56,16 @@ export const JobDetails = styled.div`
 `;
 
 export const JobDuration = styled.div`
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--secpndary-dark-color);
-  margin-top: 2px;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--secondary-color);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2px 9px;
+  margin-top: 4px;
+  width: fit-content;
 `;
 
 export const Details = styled.main`
@@ -71,16 +76,45 @@ export const Details = styled.main`
   line-height: 1.6;
 `;
 
-export const TechnologiesFooter = styled.footer`
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+export const BulletList = styled.ul`
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
 
-  .title {
-    font-weight: 600;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--secpndary-dark-color);
+export const BulletItem = styled.li`
+  position: relative;
+  padding-left: 16px;
+  font-size: 14px;
+  line-height: 1.55;
+
+  &::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: rgba(212, 160, 192, 0.65);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.45;
   }
+`;
+
+export const TechList = styled.footer`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+`;
+
+export const TechChip = styled.span`
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 3px 9px;
+  color: rgba(210, 208, 220, 0.6);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
 `;

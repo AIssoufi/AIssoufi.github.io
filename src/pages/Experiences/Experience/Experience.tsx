@@ -45,7 +45,7 @@ const Experience = ({
         <JobSummary>
           <JobName>{jobName}</JobName>
           <JobDetails>{`${entityName} · ${contratType} · ${city}`}</JobDetails>
-          <JobDuration>{`${startDate} – ${endDate} · ${duration}`}</JobDuration>
+          <JobDuration>{duration}</JobDuration>
         </JobSummary>
       </Summary>
       <Details>{children}</Details>

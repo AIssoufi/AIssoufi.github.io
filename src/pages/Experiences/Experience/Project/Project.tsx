@@ -1,20 +1,6 @@
 import Technologies from '../Technologies';
 
-import { Container, Descriptiopn, Header, State, Title } from './Project.styled';
-
-const Project = ({ title, state, technologies = [], children }: ProjectProps) => (
-  <Container>
-    <Header>
-      <Title>
-        {title}&nbsp;{state && <State>· {state}</State>}
-      </Title>
-    </Header>
-    <Descriptiopn>{children}</Descriptiopn>
-    {technologies.length > 0 && <Technologies technologies={technologies} />}
-  </Container>
-);
-
-export default Project;
+import { Body, Container, Descriptiopn, Header, State, Title, Toggle } from './Project.styled';
 
 interface ProjectProps {
   title: string;
@@ -22,3 +8,19 @@ interface ProjectProps {
   technologies?: string[];
   children?: React.ReactNode;
 }
+
+const Project = ({ title, state, technologies = [], children }: ProjectProps) => (
+  <Container>
+    <Header>
+      <Toggle>▾</Toggle>
+      <Title>{title}</Title>
+      {state && <State>{state}</State>}
+    </Header>
+    <Body>
+      <Descriptiopn>{children}</Descriptiopn>
+      {technologies.length > 0 && <Technologies technologies={technologies} />}
+    </Body>
+  </Container>
+);
+
+export default Project;

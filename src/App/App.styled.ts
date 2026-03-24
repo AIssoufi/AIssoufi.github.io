@@ -19,7 +19,7 @@ export const WebApp = styled.div`
 `;
 
 export const Page = styled.section<{ $backgroundImage?: string }>`
-  padding: 0 var(--page-padding);
+  padding: 16px var(--page-padding) 0;
   position: relative;
   grid-area: main;
 

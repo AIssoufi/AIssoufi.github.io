@@ -7,19 +7,20 @@ export const Container = styled.header`
   align-items: center;
   font-size: 18px;
   padding: 20px 0;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 10;
 
   &::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: -24px;
-    right: -24px;
-    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
     z-index: -1;
     pointer-events: none;
   }
