@@ -3,21 +3,24 @@
   --primary-color: #fff;
   --secondary-color: #e5e5e5;
   --secpndary-dark-color: #c4c4c4;
-  --tertiary-color: #802d5e;
-  --transparent-bg-color: rgba(229, 229, 229, 0.12);
+  --tertiary-color: #8b3168;
+  --transparent-bg-color: rgba(255, 255, 255, 0.06);
+  --card-border: 1px solid rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 
   /* Border */
-  --border-radius: 5px;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
 
   /* Break point */
   --tablet-max-width: 100em;
   --phone-max-width: 50em;
 
   /* Animation */
-  --transition-duration: 0.3s;
+  --transition-duration: 0.25s;
 
   /* Page */
-  --page-padding: 20px;
+  --page-padding: 24px;
 }
 
 body {
@@ -60,13 +63,14 @@ button {
   border-style: solid;
   width: max-content;
   transform: scale(1);
-  transition-property: color, border-color, transform, background-color;
+  transition-property: color, border-color, transform, background-color, box-shadow;
   transition-duration: var(--transition-duration);
+  letter-spacing: 0.02em;
 }
 
 button:hover {
   cursor: pointer;
-  transform: scale(1.15);
+  transform: scale(1.06);
 }
 
 a {

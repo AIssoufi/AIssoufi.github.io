@@ -48,6 +48,6 @@ export const Page = styled.section<{ $backgroundImage?: string }>`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgb(0 0 0 / 85%);
+    background-color: rgb(0 0 0 / 80%);
   }
 `;

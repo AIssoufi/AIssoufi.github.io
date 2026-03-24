@@ -39,14 +39,16 @@ export const NavItem = styled.li`
   padding: 14px 0;
 
   @media (min-width: 50em) {
-    padding: 14px 20px;
+    padding: 10px 16px;
     position: relative;
     transform: scale(1);
     transition-property: transform, color;
     transition-duration: var(--transition-duration);
+    font-size: 15px;
+    letter-spacing: 0.03em;
 
     &:hover {
-      transform: scale(1.15);
+      transform: scale(1.06);
     }
 
     &:hover a {
@@ -54,26 +56,24 @@ export const NavItem = styled.li`
     }
 
     > a::before {
-      content: '\\002B24';
+      content: '';
       position: absolute;
-      font-size: 7px;
-      left: 5px;
-      top: 0;
-      bottom: 0;
+      height: 2px;
+      background-color: var(--tertiary-color);
+      bottom: 4px;
+      left: 16px;
+      right: 16px;
       display: none;
-      justify-content: flex-start;
-      align-items: center;
-      transition-property: display;
-      transition-duration: var(--transition-duration);
+      border-radius: 2px;
     }
 
     > a.active::before {
-      display: flex;
+      display: block;
     }
 
     > a.active {
       color: var(--tertiary-color);
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 `;
@@ -82,21 +82,23 @@ export const CtaButton = styled.a`
   border-radius: 60px;
   width: max-content;
   transform: scale(1);
-  transition-property: color, border-color, transform, background-color;
+  transition-property: color, border-color, transform, background-color, box-shadow;
   transition-duration: var(--transition-duration);
   margin-top: 14px;
-  padding: 7px 20px;
+  padding: 8px 22px;
   color: var(--primary-color);
   background-color: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--primary-color);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   height: max-content;
+  font-size: 14px;
+  letter-spacing: 0.04em;
 
   &:hover {
-    transform: scale(1.15);
+    transform: scale(1.06);
   }
 
   .icon {
@@ -109,10 +111,13 @@ export const CtaButton = styled.a`
 
   @media (min-width: 50em) {
     margin-top: 0;
+    margin-left: 8px;
 
     &:hover {
       color: var(--tertiary-color);
       background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      box-shadow: 0 0 16px rgba(139, 49, 104, 0.3);
     }
 
     &:hover .icon {
