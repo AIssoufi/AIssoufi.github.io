@@ -1,6 +1,21 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { Page } from '../../App/App.styled';
+
+const float = keyframes`
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+`;
+
+const textFlow = keyframes`
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+`;
+
+const fadeUp = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
 
 export const HomePage = styled(Page)`
   display: flex;
@@ -9,9 +24,34 @@ export const HomePage = styled(Page)`
   align-items: center;
 `;
 
+export const CursorGlow = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 49, 104, 0.65);
+  background: radial-gradient(circle, rgba(139, 49, 104, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+`;
+
+export const Content = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: transform;
+`;
+
 export const Main = styled.main`
   text-align: center;
   max-width: 640px;
+  animation: ${float} 7s ease-in-out infinite;
+  animation-delay: 0.5s;
 `;
 
 export const Title = styled.h1`
@@ -20,19 +60,35 @@ export const Title = styled.h1`
   line-height: 1.7;
   letter-spacing: 0.01em;
   margin: 0 0 12px;
-
-  strong {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-  }
+  animation: ${fadeUp} 0.9s ease both;
 
   @media (min-width: 50em) {
     font-size: 22px;
+  }
+`;
 
-    strong {
-      font-size: 42px;
-    }
+export const StrongWord = styled.span`
+  display: inline-block;
+  will-change: transform;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 30%,
+    #d4a0c0 50%,
+    #ffffff 70%,
+    #ffffff 100%
+  );
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ${textFlow} 5s linear infinite;
+
+  @media (min-width: 50em) {
+    font-size: 42px;
   }
 `;
 
@@ -42,6 +98,7 @@ export const Subtitle = styled.p`
   color: var(--secondary-color);
   line-height: 1.6;
   margin: 0 0 4px;
+  animation: ${fadeUp} 0.9s ease 0.2s both;
 
   @media (min-width: 50em) {
     font-size: 18px;
@@ -53,14 +110,13 @@ export const ButtonContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 3.5rem;
-  gap: 12px;
+  gap: 14px;
+  animation: ${fadeUp} 0.9s ease 0.4s both;
+`;
 
-  @media (min-width: 50em) {
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 5rem;
-    gap: 16px;
-  }
+export const MagneticWrapper = styled.div`
+  display: flex;
+  will-change: transform;
 `;
 
 export const Btn = styled.a<{ $callToAction?: boolean }>`
@@ -75,19 +131,18 @@ export const Btn = styled.a<{ $callToAction?: boolean }>`
   border: 1px solid
     ${props => (props.$callToAction ? 'var(--tertiary-color)' : 'rgba(255, 255, 255, 0.4)')};
   width: max-content;
-  padding: 12px 28px;
+  min-width: 240px;
+  padding: 13px 32px;
   background-color: ${props => (props.$callToAction ? 'var(--tertiary-color)' : 'transparent')};
   color: var(--primary-color);
-  transform: scale(1);
-  transition-property: transform, background-color, color, border-color, box-shadow;
+  transition-property: background-color, color, border-color, box-shadow;
   transition-duration: var(--transition-duration);
 
   &:hover {
-    transform: scale(1.06);
     color: var(--primary-color);
     box-shadow: ${props =>
       props.$callToAction
-        ? '0 0 20px rgba(139, 49, 104, 0.5)'
+        ? '0 0 28px rgba(139, 49, 104, 0.65)'
         : '0 0 16px rgba(255, 255, 255, 0.15)'};
   }
 
