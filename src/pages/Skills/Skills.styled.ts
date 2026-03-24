@@ -5,16 +5,18 @@ import { Page } from '../../App/App.styled';
 export const SkillsPage = styled(Page)``;
 
 export const SkillSection = styled.section`
-  margin-bottom: 30px;
+  margin-bottom: 36px;
 `;
 
 export const SectionTitle = styled.h1`
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: 700;
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
 
   @media (min-width: 50em) {
-    font-size: 36px;
+    font-size: 40px;
   }
 `;
 

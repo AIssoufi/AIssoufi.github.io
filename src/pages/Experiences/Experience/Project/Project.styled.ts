@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 0 0 20px 20px;
+  padding: 0 0 16px 20px;
   position: relative;
   overflow: hidden;
 
@@ -11,7 +11,11 @@ export const Container = styled.div`
     top: 18px;
     bottom: 0;
     width: 1px;
-    background-color: white;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
     left: 7px;
   }
 `;
