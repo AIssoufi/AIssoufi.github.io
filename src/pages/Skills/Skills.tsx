@@ -17,23 +17,31 @@ export const Skills = () => {
           <Skill
             name={t('skills.frontend')}
             experienceDuration={t('skills.frontendDuration')}
-            proProjectCount={12}
+            proProjectCount={15}
             personalProjectCount={5}
-            tools={['HTML 5', 'CSS 3', 'JavaScript', 'React.js', 'Redux.js']}
+            tools={[
+              'HTML 5',
+              'CSS 3',
+              'JavaScript',
+              'TypeScript',
+              'React.js',
+              'Redux.js',
+              'Next.js',
+            ]}
             valuationValue={5}
           />
           <Skill
             name={t('skills.backend')}
             experienceDuration={t('skills.backendDuration')}
-            proProjectCount={3}
+            proProjectCount={6}
             personalProjectCount={2}
-            tools={['JavaScript', 'Node.js', 'Express.js', 'Nest.js', 'Docker', 'SQL']}
+            tools={['Node.js', 'GraphQL', 'NestJS', 'Docker', 'AWS', 'SQL']}
             valuationValue={5}
           />
           <Skill
             name={t('skills.projectManagement')}
             experienceDuration={t('skills.projectManagementDuration')}
-            proProjectCount={6}
+            proProjectCount={8}
             personalProjectCount={2}
             tools={['Scrum']}
             valuationValue={4}
@@ -42,14 +50,14 @@ export const Skills = () => {
             name={t('skills.uiDesign')}
             proProjectCount={0}
             personalProjectCount={4}
-            tools={['Proyotyping', 'Typography', 'Layout', 'Colors', 'Spacing', 'patterns']}
+            tools={['Prototyping', 'Figma', 'Typography', 'Layout', 'Colors', 'Spacing']}
             valuationValue={2}
           />
           <Skill
             name={t('skills.uxDesign')}
             proProjectCount={0}
             personalProjectCount={0}
-            tools={['wireframing']}
+            tools={['Wireframing']}
             valuationValue={1}
           />
         </SectionList>
