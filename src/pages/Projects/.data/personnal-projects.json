@@ -5,6 +5,7 @@
       "name": "Jeu d'echec",
       "type": "Application web",
       "imageUrl": "/chess.png",
+      "url": "https://aissoufi.github.io/chess/",
       "tools": ["HTML 5", "CSS 3", "JavaScript", "Gulp", "Mocha", "Babel"],
       "likeCount": 2,
       "isLikedByOwnUser": true

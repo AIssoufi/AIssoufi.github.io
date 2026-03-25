@@ -30,6 +30,7 @@ interface ProjectItemData {
   name: string;
   type: string;
   imageUrl: string;
+  url?: string;
   tools: string[];
   likeCount: number;
   isLikedByOwnUser: boolean;
@@ -130,10 +131,12 @@ const Project = ({ title, projects = [] }: ProjectProps) => {
       </SectionHeader>
       <ProjectGrid $displayAll={displayAllPages}>
         {(displayAllPages ? projects : projects.slice(currentPage, currentPage + step)).map(
-          ({ id, name, type, imageUrl, tools, likeCount, isLikedByOwnUser }) => (
+          ({ id, name, type, imageUrl, url, tools, likeCount, isLikedByOwnUser }) => (
             <ProjectItem
               key={id}
               $displayAll={displayAllPages}
+              as={url ? 'a' : 'div'}
+              {...(url ? { href: url, target: '_blank', rel: 'noreferrer' } : {})}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
             >
