@@ -30,6 +30,16 @@ const BurgerMenu = ({ isOpen, onOpen, onClose }: BurgerMenuProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    const lottieInstance = lottieRef.current;
+    if (!lottieInstance) return;
+    if (!isOpen) {
+      lottieInstance.setSpeed(4);
+      lottieInstance.setDirection(-1);
+      lottieInstance.play();
+    }
+  }, [isOpen]);
+
   const handleBurgerMenuClick = () => {
     const lottieInstance = lottieRef.current;
     if (isOpen) {
