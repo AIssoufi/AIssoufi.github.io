@@ -1,58 +1,101 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const fadeSlideIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const Nav = styled.nav<{ $mobileMenuIsOpen: boolean }>`
   display: none;
-  flex-direction: column;
-  align-items: flex-end;
-  border-radius: 100%;
-  position: relative;
-  z-index: 2;
 
   ${props =>
     props.$mobileMenuIsOpen &&
     css`
       display: flex;
-      padding: 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      inset: 0;
+      z-index: 9;
+      background: rgba(10, 6, 18, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     `}
 
   @media (min-width: 50em) {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: transparent;
-    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    position: static;
+    z-index: auto;
   }
 `;
 
 export const NavList = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  gap: 8px;
 
   @media (min-width: 50em) {
     flex-direction: row;
     align-items: center;
+    gap: 0;
   }
 `;
 
 export const NavItem = styled.li`
-  padding: 14px 0;
+  padding: 16px 48px;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  animation: ${fadeSlideIn} 0.3s ease both;
+  border-radius: 12px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+
+  &:active a {
+    color: var(--tertiary-color);
+  }
+
+  &:active {
+    background: rgba(139, 49, 104, 0.15);
+  }
 
   @media (min-width: 50em) {
     padding: 10px 16px;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    animation: none;
+    border-radius: 0;
     position: relative;
     transform: scale(1);
     transition-property: transform, color;
     transition-duration: var(--transition-duration);
-    font-size: 15px;
-    letter-spacing: 0.03em;
 
     &:hover {
       transform: scale(1.06);
+      background: transparent;
     }
 
     &:hover a {
       color: var(--tertiary-color);
+    }
+
+    &:active {
+      background: transparent;
     }
 
     > a::before {
@@ -84,8 +127,8 @@ export const CtaButton = styled.a`
   transform: scale(1);
   transition-property: color, border-color, transform, background-color, box-shadow;
   transition-duration: var(--transition-duration);
-  margin-top: 14px;
-  padding: 8px 22px;
+  margin-top: 28px;
+  padding: 14px 36px;
   color: var(--primary-color);
   background-color: transparent;
   display: flex;
@@ -94,11 +137,13 @@ export const CtaButton = styled.a`
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.5);
   height: max-content;
-  font-size: 14px;
-  letter-spacing: 0.04em;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  animation: ${fadeSlideIn} 0.3s ease 0.2s both;
 
-  &:hover {
-    transform: scale(1.06);
+  &:active {
+    background-color: rgba(139, 49, 104, 0.2);
+    border-color: rgba(139, 49, 104, 0.6);
   }
 
   .icon {
@@ -112,8 +157,13 @@ export const CtaButton = styled.a`
   @media (min-width: 50em) {
     margin-top: 0;
     margin-left: 8px;
+    padding: 8px 22px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    animation: none;
 
     &:hover {
+      transform: scale(1.06);
       color: var(--tertiary-color);
       background-color: var(--primary-color);
       border-color: var(--primary-color);
@@ -122,6 +172,11 @@ export const CtaButton = styled.a`
 
     &:hover .icon {
       stroke: var(--tertiary-color);
+    }
+
+    &:active {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
     }
   }
 `;

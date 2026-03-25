@@ -9,7 +9,7 @@ export const Container = styled.header`
   padding: 20px 0;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 11;
 
   &::after {
     content: '';
