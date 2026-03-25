@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Experiences, Home, Projects, Skills } from '../pages';
 import Header from './Header';
+import LangToggle from './LangToggle/LangToggle';
 
 import { WebApp } from './App.styled';
 
@@ -9,6 +10,7 @@ function App() {
     <Router>
       <WebApp data-testid="app">
         <Header />
+        <LangToggle />
         <Routes>
           <Route
             path="/projects"

@@ -5,11 +5,11 @@ import { useTranslation } from 'react-i18next';
 import BurgerMenu from './BurgerMenu';
 import NavMenu from './NavMenu';
 
-import { Container, LangBtn, LangSwitch, Logo, Menu } from './Header.styled';
+import { Container, Logo, Menu } from './Header.styled';
 
 const Header = ({ testId }: HeaderProps) => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const items = [
     { name: t('nav.home'), url: '/', end: true },
@@ -29,20 +29,6 @@ const Header = ({ testId }: HeaderProps) => {
           mobileMenuIsOpen={mobileMenuIsOpen}
           onClick={() => setMobileMenuIsOpen(false)}
         />
-        <LangSwitch>
-          <LangBtn
-            $active={i18n.language === 'fr'}
-            onClick={() => i18n.changeLanguage('fr')}
-          >
-            FR
-          </LangBtn>
-          <LangBtn
-            $active={i18n.language === 'en'}
-            onClick={() => i18n.changeLanguage('en')}
-          >
-            EN
-          </LangBtn>
-        </LangSwitch>
         <BurgerMenu
           isOpen={mobileMenuIsOpen}
           onOpen={() => setMobileMenuIsOpen(true)}
