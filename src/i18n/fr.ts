@@ -1,9 +1,9 @@
 export const fr = {
   nav: {
     home: 'Accueil',
-    projects: 'Projects',
-    experience: 'Experience',
-    skills: 'Skills',
+    projects: 'Projets',
+    experience: 'Expériences',
+    skills: 'Compétences',
   },
   home: {
     title1: 'Développeur full-stack JavaScript',
