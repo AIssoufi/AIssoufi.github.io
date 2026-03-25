@@ -13,8 +13,15 @@ interface WordState {
 }
 
 const RETURN_DELAY = 900; // ms avant que le ressort se réactive
+const CYCLE = 5; // durée du cycle d'animation en secondes
 
-export const SplitWords = ({ children }: { children: string }) => {
+export const SplitWords = ({
+  children,
+  startIndex = 0,
+}: {
+  children: string;
+  startIndex?: number;
+}) => {
   const words = children.split(' ');
   const refs = useRef<(HTMLSpanElement | null)[]>([]);
   const states = useRef<WordState[]>(
@@ -98,17 +105,22 @@ export const SplitWords = ({ children }: { children: string }) => {
 
   return (
     <>
-      {words.map((word, i) => (
-        <StrongWord
-          key={i}
-          ref={el => {
-            refs.current[i] = el;
-          }}
-        >
-          {word}
-          {i < words.length - 1 ? '\u00A0' : ''}
-        </StrongWord>
-      ))}
+      {words.map((word, i) => {
+        const globalIndex = startIndex + i;
+        return (
+          <StrongWord
+            key={i}
+            ref={el => {
+              refs.current[i] = el;
+            }}
+            $delay={`-${globalIndex % CYCLE}s`}
+            $reverse={globalIndex % 2 === 1}
+          >
+            {word}
+            {i < words.length - 1 ? '\u00A0' : ''}
+          </StrongWord>
+        );
+      })}
     </>
   );
 };

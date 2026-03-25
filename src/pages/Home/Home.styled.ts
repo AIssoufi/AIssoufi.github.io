@@ -67,7 +67,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const StrongWord = styled.span`
+export const StrongWord = styled.span<{ $delay: string; $reverse: boolean }>`
   display: inline-block;
   will-change: transform;
   font-size: 28px;
@@ -86,6 +86,8 @@ export const StrongWord = styled.span`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: ${textFlow} 5s linear infinite;
+  animation-delay: ${({ $delay }) => $delay};
+  animation-direction: ${({ $reverse }) => ($reverse ? 'reverse' : 'normal')};
 
   @media (min-width: 50em) {
     font-size: 42px;
