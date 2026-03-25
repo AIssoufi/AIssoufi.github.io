@@ -45,7 +45,7 @@ export const Menu = styled.div<MenuProps>`
   flex-direction: row;
 
   ${props =>
-    props.isSticky &&
+    props.$isSticky &&
     css`
       position: fixed;
       top: 20px;
@@ -55,5 +55,5 @@ export const Menu = styled.div<MenuProps>`
 `;
 
 interface MenuProps {
-  isSticky: boolean;
+  $isSticky: boolean;
 }

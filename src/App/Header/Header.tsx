@@ -23,7 +23,7 @@ const Header = ({ testId }: HeaderProps) => {
       <Logo>
         <Link to="/">AI</Link>
       </Logo>
-      <Menu isSticky={mobileMenuIsOpen}>
+      <Menu $isSticky={mobileMenuIsOpen}>
         <NavMenu
           items={items}
           mobileMenuIsOpen={mobileMenuIsOpen}
