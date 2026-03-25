@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import Experience from './Experience';
 import ExperienceGroup from './ExperienceGroup';
 import { BulletItem, BulletList } from './Experience/Experience.styled';
@@ -18,58 +20,45 @@ import {
 const BG_IMAGE = '/experiences.jpeg';
 
 export const Experiences = () => {
+  const { t } = useTranslation();
+
   return (
     <ExperiencesPage $backgroundImage={BG_IMAGE}>
       <PageHeader>
-        <PageTitle>Expériences</PageTitle>
+        <PageTitle>{t('exp.pageTitle')}</PageTitle>
       </PageHeader>
       <main>
         <Timeline>
+          {/* ── Sewan ────────────────────────────────────────── */}
           <ExperienceGroup
-            entityName="Sewan Groupe"
+            entityName={t('exp.sewan.name')}
             entityLogoUrl="/sewan.png"
-            contratType="CDI"
-            city="Paris (75)"
+            contratType={t('exp.sewan.contract')}
+            city={t('exp.sewan.city')}
           >
             <ExperienceGroup.Role
-              jobName="Lead Frontend Engineer — UI Kit Owner & Architect"
-              startDate="août 2021"
-              endDate="Aujourd'hui"
+              jobName={t('exp.sewanLead.title')}
+              startDate={t('exp.sewanLead.start')}
+              endDate={t('exp.sewanLead.end')}
             >
-              Owner et référent technique de l'UI Kit interne Sewan — bibliothèque de composants
-              React distribuée à <strong>~15 équipes produit</strong> via un registre NPM privé.
-              Interlocuteur unique entre les équipes design system, les développeurs consommateurs
-              et la direction technique.
+              {t('exp.sewanLead.intro1')}
+              <strong>{t('exp.sewanLead.introStrong')}</strong>
+              {t('exp.sewanLead.intro2')}
               <BulletList>
-                <BulletItem>
-                  Conception et évolution d'APIs de composants React + TypeScript robustes,
-                  documentées sous Storybook, suivant une approche TDD
-                </BulletItem>
-                <BulletItem>
-                  Priorisation du backlog, recueil et arbitrage des besoins auprès de ~15 équipes
-                </BulletItem>
-                <BulletItem>
-                  Accompagnement transverse : onboarding, code review, debug et formation des
-                  équipes consommatrices
-                </BulletItem>
+                <BulletItem>{t('exp.sewanLead.b1')}</BulletItem>
+                <BulletItem>{t('exp.sewanLead.b2')}</BulletItem>
+                <BulletItem>{t('exp.sewanLead.b3')}</BulletItem>
               </BulletList>
               <ExperienceGroup.Role.Project
-                title="Modernisation complète de la stack technique"
-                state="En production"
+                title={t('exp.sewanLead.proj1Title')}
+                state={t('exp.sewanLead.proj1State')}
               >
-                Refonte technique de bout en bout menée en solo pour moderniser l'outillage et
-                améliorer significativement l'expérience développeur (DX) :
+                {t('exp.sewanLead.proj1Intro')}
                 <BulletList>
-                  <BulletItem>
-                    Storybook v5.3 → v8.6 (migration CSF 2 → CSF 3), Node.js v16 → v22
-                  </BulletItem>
-                  <BulletItem>
-                    Jest → Vitest, Webpack → tsup + Vite (builds sensiblement plus rapides)
-                  </BulletItem>
-                  <BulletItem>
-                    npm + Lerna v4 → pnpm + Lerna v8 ; passage à TypeScript strict
-                  </BulletItem>
-                  <BulletItem>Refonte intégrale du pipeline CI/CD GitLab</BulletItem>
+                  <BulletItem>{t('exp.sewanLead.proj1B1')}</BulletItem>
+                  <BulletItem>{t('exp.sewanLead.proj1B2')}</BulletItem>
+                  <BulletItem>{t('exp.sewanLead.proj1B3')}</BulletItem>
+                  <BulletItem>{t('exp.sewanLead.proj1B4')}</BulletItem>
                 </BulletList>
               </ExperienceGroup.Role.Project>
               <ExperienceGroup.Role.Technologies
@@ -90,77 +79,55 @@ export const Experiences = () => {
             </ExperienceGroup.Role>
 
             <ExperienceGroup.Role
-              jobName="Senior Full-Stack Engineer — Core Platform (React, Node.js, GraphQL)"
-              startDate="juin 2021"
-              endDate="Aujourd'hui"
+              jobName={t('exp.sewanSenior.title')}
+              startDate={t('exp.sewanSenior.start')}
+              endDate={t('exp.sewanSenior.end')}
             >
-              Membre de l'équipe core (3 développeurs) en charge des fondations techniques de{' '}
-              <strong>Sophia Go</strong>, la plateforme métier centrale de Sewan.
+              {t('exp.sewanSenior.intro1')}
+              <strong>{t('exp.sewanSenior.introStrong')}</strong>
+              {t('exp.sewanSenior.intro2')}
               <BulletList>
-                <BulletItem>
-                  Conception de l'architecture front-end transverse : store global, logique métier
-                  commune, configuration partagée et librairies internes utilisées par toutes les
-                  équipes feature
-                </BulletItem>
-                <BulletItem>
-                  Développement full-stack de modules critiques : React/TypeScript côté client,
-                  Node.js/GraphQL côté serveur
-                </BulletItem>
-                <BulletItem>
-                  Pilotage des évolutions techniques majeures et accompagnement des équipes dans
-                  leur adoption
-                </BulletItem>
+                <BulletItem>{t('exp.sewanSenior.b1')}</BulletItem>
+                <BulletItem>{t('exp.sewanSenior.b2')}</BulletItem>
+                <BulletItem>{t('exp.sewanSenior.b3')}</BulletItem>
               </BulletList>
               <ExperienceGroup.Role.Project
-                title="friday — BFF GraphQL"
+                title={t('exp.sewanSenior.proj1Title')}
                 technologies={['Node.js', 'GraphQL']}
               >
-                Conception et développement d'un Backend-For-Frontend GraphQL découplant le
-                front-end des microservices back-end. Simplifie les contrats d'API et réduit le
-                couplage entre les équipes.
+                {t('exp.sewanSenior.proj1Desc')}
               </ExperienceGroup.Role.Project>
               <ExperienceGroup.Role.Project
-                title="onboarding-app — Espace client React"
+                title={t('exp.sewanSenior.proj2Title')}
                 technologies={['React.js', 'TypeScript', 'Redux.js']}
               >
-                Développement from scratch de l'application React d'onboarding client de la
-                plateforme Sophia Go — point d'entrée critique pour les nouveaux clients Sewan.
+                {t('exp.sewanSenior.proj2Desc')}
               </ExperienceGroup.Role.Project>
             </ExperienceGroup.Role>
           </ExperienceGroup>
 
+          {/* ── Wibilong ─────────────────────────────────────── */}
           <TimelineEntry>
             <TimelinePeriod>
-              <PeriodStart>sept. 2019</PeriodStart>
+              <PeriodStart>{t('exp.periods.wibilongStart')}</PeriodStart>
               <PeriodSep>↓</PeriodSep>
-              <PeriodEnd>juin 2021</PeriodEnd>
+              <PeriodEnd>{t('exp.periods.wibilongEnd')}</PeriodEnd>
             </TimelinePeriod>
             <TimelineContent>
               <Experience
-                jobName="Full-Stack JavaScript Engineer — React, Node.js, AWS"
-                entityName="Wibilong"
+                jobName={t('exp.wibilong.title')}
+                entityName={t('exp.wibilong.name')}
                 entityLogoUrl="/wibilong.png"
-                contratType="CDI"
-                city="Paris (75)"
-                startDate="sept. 2019"
-                endDate="juin 2021"
-                duration="1 an 10 mois"
+                contratType={t('exp.wibilong.contract')}
+                city={t('exp.wibilong.city')}
+                startDate={t('exp.wibilong.start')}
+                endDate={t('exp.wibilong.end')}
               >
-                Développement full-stack end-to-end des solutions SaaS Wibilong (WiService V3,
-                WiManager, WiSell), au sein d'une équipe de deux développeurs.
+                {t('exp.wibilong.intro')}
                 <BulletList>
-                  <BulletItem>
-                    Développement de nouvelles fonctionnalités de bout en bout : de la maquette
-                    produit à la mise en production, côté front (React, Redux) et back (Node.js,
-                    serverless AWS)
-                  </BulletItem>
-                  <BulletItem>
-                    Conception et documentation d'APIs REST sous Swagger ; déploiement via AWS
-                    Lambda, API Gateway et CloudFormation
-                  </BulletItem>
-                  <BulletItem>
-                    Maintien en condition opérationnelle (MCO) et résolution de bugs en production
-                  </BulletItem>
+                  <BulletItem>{t('exp.wibilong.b1')}</BulletItem>
+                  <BulletItem>{t('exp.wibilong.b2')}</BulletItem>
+                  <BulletItem>{t('exp.wibilong.b3')}</BulletItem>
                 </BulletList>
                 <Experience.Technologies
                   technologies={[
@@ -179,26 +146,26 @@ export const Experiences = () => {
             </TimelineContent>
           </TimelineEntry>
 
+          {/* ── Supralog ─────────────────────────────────────── */}
           <TimelineEntry>
             <TimelinePeriod>
-              <PeriodStart>juin 2018</PeriodStart>
+              <PeriodStart>{t('exp.periods.supralogStart')}</PeriodStart>
               <PeriodSep>↓</PeriodSep>
-              <PeriodEnd>sept. 2019</PeriodEnd>
+              <PeriodEnd>{t('exp.periods.supralogEnd')}</PeriodEnd>
             </TimelinePeriod>
             <TimelineContent>
               <Experience
-                jobName="Développeur Full-Stack JavaScript — Alternance"
-                entityName="Supralog"
+                jobName={t('exp.supralog.title')}
+                entityName={t('exp.supralog.name')}
                 entityLogoUrl="/supralog.png"
-                contratType="Alternance"
-                city="Antibes (06)"
-                startDate="juin 2018"
-                endDate="sept. 2019"
-                duration="1 an 4 mois"
+                contratType={t('exp.supralog.contract')}
+                city={t('exp.supralog.city')}
+                startDate={t('exp.supralog.start')}
+                endDate={t('exp.supralog.end')}
               >
                 <Experience.Project
-                  title="MyFFBaD — Espace licencié FFBaD"
-                  state="Livré dans les délais"
+                  title={t('exp.supralog.proj1Title')}
+                  state={t('exp.supralog.proj1State')}
                   technologies={[
                     'React.js',
                     'Redux.js',
@@ -209,55 +176,50 @@ export const Experiences = () => {
                     'Google Cloud Platform',
                   ]}
                 >
-                  En binôme, développement from scratch de l'espace licencié de la{' '}
-                  <strong>Fédération Française de Badminton</strong> à partir des maquettes et du
-                  cahier des charges — puis conception, implémentation et déploiement de 3
-                  micro-services sur GCP.
+                  {t('exp.supralog.proj1Desc1')}
+                  <strong>{t('exp.supralog.proj1Strong')}</strong>
+                  {t('exp.supralog.proj1Desc2')}
                 </Experience.Project>
                 <Experience.Project
-                  title="CLARIS — Refonte SI de certification"
-                  state="3 sprints livrés"
+                  title={t('exp.supralog.proj2Title')}
+                  state={t('exp.supralog.proj2State')}
                   technologies={['React.js', 'Redux.js', 'TypeScript', 'ChartJS']}
                 >
-                  Au sein d'une équipe de 7 développeurs, participation à la refonte du front-end du
-                  SI CLARIS pour <strong>Eurovent Certita Certification SAS</strong>, leader
-                  européen de la certification industrielle.
+                  {t('exp.supralog.proj2Desc1')}
+                  <strong>{t('exp.supralog.proj2Strong')}</strong>
+                  {t('exp.supralog.proj2Desc2')}
                 </Experience.Project>
               </Experience>
             </TimelineContent>
           </TimelineEntry>
 
+          {/* ── Beepeers ─────────────────────────────────────── */}
           <TimelineEntry>
             <TimelinePeriod>
-              <PeriodStart>mai 2017</PeriodStart>
+              <PeriodStart>{t('exp.periods.beepeersStart')}</PeriodStart>
               <PeriodSep>↓</PeriodSep>
-              <PeriodEnd>août 2017</PeriodEnd>
+              <PeriodEnd>{t('exp.periods.beepeersEnd')}</PeriodEnd>
             </TimelinePeriod>
             <TimelineContent>
               <Experience
-                jobName="Développeur React.js — Stage"
-                entityName="Beepeers"
+                jobName={t('exp.beepeers.title')}
+                entityName={t('exp.beepeers.name')}
                 entityLogoUrl="/beepeers.jpg"
-                contratType="Stage"
-                city="Valbonne (06)"
-                startDate="mai 2017"
-                endDate="août 2017"
-                duration="4 mois"
+                contratType={t('exp.beepeers.contract')}
+                city={t('exp.beepeers.city')}
+                startDate={t('exp.beepeers.start')}
+                endDate={t('exp.beepeers.end')}
               >
                 <Experience.Project
-                  title="Dream Nation Festival 2017 — Site événementiel"
-                  state="Livré dans les délais"
+                  title={t('exp.beepeers.proj1Title')}
+                  state={t('exp.beepeers.proj1State')}
                   technologies={['React.js', 'Redux.js', 'AngularJS']}
                 >
-                  Conception et réalisation complète d'un site événementiel avec système de
-                  réservation et paiement en ligne.
+                  {t('exp.beepeers.proj1Desc')}
                   <BulletList>
-                    <BulletItem>Architecture et maquettes des écrans</BulletItem>
-                    <BulletItem>
-                      Développement React avec intégration billetterie (Fasticket) et paiement CB
-                      (WeezeEvent)
-                    </BulletItem>
-                    <BulletItem>Maintenance des sites existants en AngularJS</BulletItem>
+                    <BulletItem>{t('exp.beepeers.proj1B1')}</BulletItem>
+                    <BulletItem>{t('exp.beepeers.proj1B2')}</BulletItem>
+                    <BulletItem>{t('exp.beepeers.proj1B3')}</BulletItem>
                   </BulletList>
                 </Experience.Project>
               </Experience>

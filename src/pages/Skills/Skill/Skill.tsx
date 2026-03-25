@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { AdditionalInfos, Card, CardHeader, Name, Star, Tools, Valuation } from './Skill.styled';
 
 interface SkillProps {
@@ -17,6 +19,20 @@ const Skill = ({
   tools = [],
   valuationValue,
 }: SkillProps) => {
+  const { t } = useTranslation();
+
+  const showInfo = Number.isInteger(proProjectCount) && Number.isInteger(personalProjectCount);
+
+  const proText =
+    proProjectCount === 0
+      ? t('skills.noProProjects')
+      : t('skills.proProjects', { count: proProjectCount });
+
+  const personalText =
+    personalProjectCount === 0
+      ? t('skills.noPersonalProjects')
+      : t('skills.personalProjects', { count: personalProjectCount });
+
   return (
     <Card>
       <CardHeader>
@@ -32,26 +48,18 @@ const Skill = ({
           ))}
         </Valuation>
       </CardHeader>
-      {experienceDuration &&
-      Number.isInteger(proProjectCount) &&
-      Number.isInteger(personalProjectCount) ? (
+      {showInfo && (
         <AdditionalInfos>
           <div>
-            {experienceDuration ? experienceDuration : 'Pas '} d'expériences professionnelles
+            {experienceDuration
+              ? `${experienceDuration} ${t('skills.experienceSuffix')}`
+              : t('skills.noExperience')}
           </div>
-          <div>
-            {proProjectCount ? proProjectCount : 'Pas de'} projet
-            {proProjectCount && proProjectCount > 1 ? 's' : ''} professionnel
-            {proProjectCount && proProjectCount > 1 ? 's' : ''}
-          </div>
-          <div>
-            {personalProjectCount ? personalProjectCount : 'Pas de'} projet
-            {personalProjectCount && personalProjectCount > 1 ? 's' : ''} personnel
-            {personalProjectCount && personalProjectCount > 1 ? 's' : ''}
-          </div>
+          <div>{proText}</div>
+          <div>{personalText}</div>
         </AdditionalInfos>
-      ) : null}
-      {tools.length > 0 ? <Tools>{tools.join(', ')}</Tools> : null}
+      )}
+      {tools.length > 0 && <Tools>{tools.join(', ')}</Tools>}
     </Card>
   );
 };

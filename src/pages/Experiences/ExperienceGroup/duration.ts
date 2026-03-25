@@ -1,4 +1,5 @@
-const FRENCH_MONTHS: Record<string, number> = {
+const MONTH_NAMES: Record<string, number> = {
+  // French
   janv: 0,
   janvier: 0,
   févr: 1,
@@ -19,22 +20,49 @@ const FRENCH_MONTHS: Record<string, number> = {
   novembre: 10,
   déc: 11,
   décembre: 11,
+  // English
+  jan: 0,
+  january: 0,
+  feb: 1,
+  february: 1,
+  mar: 2,
+  march: 2,
+  apr: 3,
+  april: 3,
+  may: 4,
+  jun: 5,
+  june: 5,
+  jul: 6,
+  july: 6,
+  aug: 7,
+  august: 7,
+  sep: 8,
+  september: 8,
+  dec: 11,
+  december: 11,
 };
 
-function parseFrenchDate(str: string): Date {
+function parseDate(str: string): Date {
   const s = str.trim().toLowerCase();
-  if (s === "aujourd'hui" || s === 'auj.' || s === 'auj') {
+  if (
+    s === "aujourd'hui" ||
+    s === 'auj.' ||
+    s === 'auj' ||
+    s === 'present' ||
+    s === 'today' ||
+    s === 'pres.'
+  ) {
     return new Date();
   }
   const [rawMonth, rawYear] = s.split(' ');
   const monthKey = rawMonth.replace('.', '');
-  const month = FRENCH_MONTHS[monthKey] ?? 0;
+  const month = MONTH_NAMES[monthKey] ?? 0;
   return new Date(parseInt(rawYear, 10), month, 1);
 }
 
 export function computeDuration(startDate: string, endDate: string): string {
-  const start = parseFrenchDate(startDate);
-  const end = parseFrenchDate(endDate);
+  const start = parseDate(startDate);
+  const end = parseDate(endDate);
 
   let years = end.getFullYear() - start.getFullYear();
   let months = end.getMonth() - start.getMonth();

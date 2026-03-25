@@ -1,13 +1,22 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import BurgerMenu from './BurgerMenu';
 import NavMenu from './NavMenu';
 
-import { Container, Logo, Menu } from './Header.styled';
+import { Container, LangBtn, LangSwitch, Logo, Menu } from './Header.styled';
 
 const Header = ({ testId }: HeaderProps) => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  const items = [
+    { name: t('nav.home'), url: '/', end: true },
+    { name: t('nav.projects'), url: '/projects' },
+    { name: t('nav.experience'), url: '/experiences' },
+    { name: t('nav.skills'), url: '/skills' },
+  ];
 
   return (
     <Container data-testid={testId}>
@@ -20,6 +29,20 @@ const Header = ({ testId }: HeaderProps) => {
           mobileMenuIsOpen={mobileMenuIsOpen}
           onClick={() => setMobileMenuIsOpen(false)}
         />
+        <LangSwitch>
+          <LangBtn
+            $active={i18n.language === 'fr'}
+            onClick={() => i18n.changeLanguage('fr')}
+          >
+            FR
+          </LangBtn>
+          <LangBtn
+            $active={i18n.language === 'en'}
+            onClick={() => i18n.changeLanguage('en')}
+          >
+            EN
+          </LangBtn>
+        </LangSwitch>
         <BurgerMenu
           isOpen={mobileMenuIsOpen}
           onOpen={() => setMobileMenuIsOpen(true)}
@@ -35,10 +58,3 @@ export default Header;
 interface HeaderProps {
   testId?: string;
 }
-
-const items = [
-  { name: 'Accueil', url: '/' },
-  { name: 'Projects', url: '/projects' },
-  { name: 'Experience', url: '/experiences' },
-  { name: 'Skills', url: '/skills' },
-];

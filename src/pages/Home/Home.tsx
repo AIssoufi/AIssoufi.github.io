@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { ParticleField } from './ParticleField';
 import { SplitWords } from './SplitWords';
@@ -16,13 +17,13 @@ import {
 } from './Home.styled';
 
 export const Home = () => {
+  const { t } = useTranslation();
   const contentRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorPos = useRef({ x: -100, y: -100 });
   const cursorTarget = useRef({ x: -100, y: -100 });
   const cursorRaf = useRef<number>(0);
 
-  // Cursor glow with lerp
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       cursorTarget.current = { x: e.clientX, y: e.clientY };
@@ -47,7 +48,6 @@ export const Home = () => {
     };
   }, []);
 
-  // Parallax on content
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       if (!contentRef.current) return;
@@ -74,7 +74,6 @@ export const Home = () => {
     };
   }, []);
 
-  // Magnetic buttons
   const handleMagnetMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const el = e.currentTarget;
     const rect = el.getBoundingClientRect();
@@ -96,11 +95,15 @@ export const Home = () => {
       <Content ref={contentRef}>
         <Main>
           <Title>
-            <SplitWords>Développeur full-stack JavaScript</SplitWords>
+            <SplitWords startIndex={0}>{t('home.title1')}</SplitWords>
             <br />
-            passioné par l'<SplitWords>UX</SplitWords> et l'<SplitWords>UI</SplitWords> Design
+            {t('home.title2Pre')}
+            <SplitWords startIndex={3}>UX</SplitWords>
+            {t('home.title2Mid')}
+            <SplitWords startIndex={4}>UI</SplitWords>
+            {t('home.title2Post')}
           </Title>
-          <Subtitle>Je vous aide à développer vos applications web</Subtitle>
+          <Subtitle>{t('home.subtitle')}</Subtitle>
         </Main>
         <ButtonContainer>
           <MagneticWrapper
@@ -112,7 +115,7 @@ export const Home = () => {
               to="/projects"
               $callToAction
             >
-              Voir mes projets
+              {t('home.cta')}
             </Btn>
           </MagneticWrapper>
           <MagneticWrapper
@@ -123,7 +126,7 @@ export const Home = () => {
               as={Link}
               to="/experiences"
             >
-              Expériences professionnelles
+              {t('home.secondary')}
             </Btn>
           </MagneticWrapper>
         </ButtonContainer>

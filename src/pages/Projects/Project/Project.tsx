@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // SVG
 import LikeIcon from './icons/heart.svg?react';
@@ -42,6 +43,7 @@ interface ProjectProps {
 type LikeState = Record<number, { count: number; liked: boolean }>;
 
 const Project = ({ title, projects = [] }: ProjectProps) => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
   const [displayAllPages, setDisplayAllPages] = useState(false);
   const step = 3;
@@ -110,7 +112,9 @@ const Project = ({ title, projects = [] }: ProjectProps) => {
         <SectionTitle>{title}</SectionTitle>
         <NavCtrl>
           <CtrlItem onClick={handleDisplayAllPage}>
-            {displayAllPages ? 'Afficher moins' : `Tout afficher (${projects.length})`}
+            {displayAllPages
+              ? t('projects.showLess')
+              : t('projects.showAll', { count: projects.length })}
           </CtrlItem>
           {displayAllPages ? null : (
             <IconBtn onClick={handlePreviousPage}>

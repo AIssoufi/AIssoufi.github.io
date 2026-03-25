@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App/App';
 
+import './i18n/index';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('welcome') as HTMLElement);

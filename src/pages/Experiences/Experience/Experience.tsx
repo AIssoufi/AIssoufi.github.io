@@ -1,5 +1,6 @@
 import Project from './Project';
 import Technologies from './Technologies';
+import { computeDuration } from '../ExperienceGroup/duration';
 
 import {
   Article,
@@ -20,7 +21,6 @@ interface ExperienceProps {
   city: string;
   startDate: string;
   endDate: string;
-  duration: string;
   children: React.ReactNode;
 }
 
@@ -32,7 +32,6 @@ const Experience = ({
   city,
   startDate,
   endDate,
-  duration,
   children,
 }: ExperienceProps) => {
   return (
@@ -45,7 +44,7 @@ const Experience = ({
         <JobSummary>
           <JobName>{jobName}</JobName>
           <JobDetails>{`${entityName} · ${contratType} · ${city}`}</JobDetails>
-          <JobDuration>{duration}</JobDuration>
+          <JobDuration>{computeDuration(startDate, endDate)}</JobDuration>
         </JobSummary>
       </Summary>
       <Details>{children}</Details>
