@@ -1,2 +1,8 @@
 allowBuilds:
   esbuild: false
+
+overrides:
+  # styled-components pins postcss at an exact version (8.4.49), but only
+  # references it from its unused React Native build — safe to override to
+  # close GHSA path-traversal/file-read alerts not covered by any Dependabot PR.
+  postcss: ^8.5.25
